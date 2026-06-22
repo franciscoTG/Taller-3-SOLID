@@ -21,12 +21,23 @@ import java.util.ArrayList;
         Menu m4 = new MenuEconomico("Arroz con huevo", 3.00, 15);
 
             Cuenta cuenta = new Cuenta("Maria");
-
+            Cuenta cuenta1 = new Cuenta("Juan");
+            
+            
             cuenta.agregarMenu(m1);
             cuenta.agregarMenu(m2);
             cuenta.agregarMenu(m3);
             cuenta.agregarMenu(m4);
+            
+            cuenta1.agregarMenu(m1);
+            cuenta1.agregarMenu(m2);
+            cuenta1.agregarMenu(m3);
+            cuenta1.agregarMenu(m4);
+            
 
+            System.out.println(cuenta1);
+            
+            System.out.println();
             System.out.println(cuenta);
         }
     }

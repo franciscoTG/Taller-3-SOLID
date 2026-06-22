@@ -27,6 +27,7 @@ public class MenuDia extends Menu {
     public void calcularValorMenu() {
         valorFinal = valorInicial + valorPostre + valorBebida;
     }
+    
 
     @Override
     public String toString() {
