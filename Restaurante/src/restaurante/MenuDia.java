@@ -20,7 +20,6 @@ public class MenuDia extends Menu {
         this.valorPostre = valorPostre;
         this.valorBebida = valorBebida;
 
-        calcularValorMenu();
     }
 
     @Override
