@@ -1,4 +1,3 @@
-package juegoderoles;
 
 public class Arqueros extends Personajes {
 
@@ -30,16 +29,14 @@ public class Arqueros extends Personajes {
     public int atacar() {
         if (cantidadFlechas > 0) {
             cantidadFlechas--;
-            return this.ataque + this.precision;
+            return this.ataque + this.precision + getBonusAtaqueEquipado();
         }
-        return this.ataque;
-
+        return this.ataque + getBonusAtaqueEquipado();
     }
 
     @Override
     public int defender() {
-        return 5;
-
+        return 5 + getBonusDefensaEquipado();
     }
 
 }
