@@ -27,17 +27,37 @@ public abstract class Personajes {
         this.cooldownActual = 0;
     }
 
-    public String getNombre() { return nombre; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
+    public String getNombre() {
+        return nombre;
+    }
 
-    public int getVida() { return vida; }
-    public void setVida(int vida) { this.vida = vida; }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-    public int getAtaque() { return ataque; }
-    public void setAtaque(int ataque) { this.ataque = ataque; }
+    public int getVida() {
+        return vida;
+    }
 
-    public int getNivel() { return nivel; }
-    public void setNivel(int nivel) { this.nivel = nivel; }
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
+
+    public int getAtaque() {
+        return ataque;
+    }
+
+    public void setAtaque(int ataque) {
+        this.ataque = ataque;
+    }
+
+    public int getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
 
     public void recibirDanio(int cantidad) {
         this.vida -= cantidad;
@@ -69,9 +89,13 @@ public abstract class Personajes {
         return false;
     }
 
-    public void desequipar() { equipado = null; }
+    public void desequipar() {
+        equipado = null;
+    }
 
-    public Objeto getObjetoEquipado() { return equipado; }
+    public Objeto getObjetoEquipado() {
+        return equipado;
+    }
 
     public int getBonusAtaqueEquipado() {
         return equipado != null ? equipado.getBonusAtaque() : 0;
@@ -82,6 +106,7 @@ public abstract class Personajes {
     }
 
     public abstract int atacar();
+
     public abstract int defender();
 
     public void agregarEstado(EstadoAlterado estado) {
@@ -107,19 +132,26 @@ public abstract class Personajes {
         return mod;
     }
 
-    public int getEnergia() { return energia; }
-    public int getEnergiaMax() { return energiaMax; }
+    public int getEnergia() {
+        return energia;
+    }
+
+    public int getEnergiaMax() {
+        return energiaMax;
+    }
 
     protected void setEnergiaMax(int max) {
         this.energiaMax = max;
-        if (this.energia > max) this.energia = max;
+        if (this.energia > max) {
+            this.energia = max;
+        }
     }
 
     protected void setCooldownEspecial(int turnos) {
         this.cooldownEspecial = Math.max(0, turnos);
     }
 
-    // ← CAMBIO: sin excepciones, retorna false si no puede usar la habilidad
+    // Este método devuelve false cuando no se puede usar la habilidad especial.
     public boolean usarHabilidadEspecial(Personajes objetivo) {
         if (this.cooldownActual > 0) {
             System.out.println(this.nombre + ": habilidad en cooldown (" + this.cooldownActual + " turnos restantes)");
@@ -137,6 +169,7 @@ public abstract class Personajes {
     }
 
     protected abstract int costoHabilidadEspecial();
+
     protected abstract void habilidadEspecial(Personajes objetivo);
 
     public void procesarEstadosInicioTurno() {
@@ -151,6 +184,8 @@ public abstract class Personajes {
         }
         int regen = Math.max(1, this.energiaMax / 10);
         this.energia = Math.min(this.energiaMax, this.energia + regen);
-        if (this.cooldownActual > 0) this.cooldownActual--;
+        if (this.cooldownActual > 0) {
+            this.cooldownActual--;
+        }
     }
 }
