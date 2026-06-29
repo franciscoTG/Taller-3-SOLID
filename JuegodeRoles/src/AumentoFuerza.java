@@ -3,9 +3,14 @@ public class AumentoFuerza extends EstadoAlterado {
     private int bonus;
 
     public AumentoFuerza(int duracion, int bonus) {
-        super(duracion);
-        this.bonus = bonus;
+    super(duracion);
+
+    if (bonus < 0) {
+        throw new IllegalArgumentException("El bonus no puede ser negativo.");
     }
+
+    this.bonus = bonus;
+}
 
     @Override
     public void aplicarInicioTurno(Personajes p) {
@@ -25,4 +30,5 @@ public class AumentoFuerza extends EstadoAlterado {
         return "Aumento de Fuerza";
     }
 }
+
 
