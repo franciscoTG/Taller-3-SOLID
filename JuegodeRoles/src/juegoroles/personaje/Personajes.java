@@ -111,9 +111,15 @@ public abstract class Personajes {
     public abstract int defender();
 
     public void agregarEstado(EstadoAlterado estado) {
-        this.estados.add(estado);
-        System.out.println(this.nombre + " ahora tiene el estado: " + estado.getNombre());
+
+    if (estado == null) {
+        System.out.println("No se puede agregar un estado nulo.");
+        return;
     }
+
+    this.estados.add(estado);
+    System.out.println(this.nombre + " ahora tiene el estado: " + estado.getNombre());
+}
 
     public boolean puedeAtacar() {
         for (EstadoAlterado est : estados) {

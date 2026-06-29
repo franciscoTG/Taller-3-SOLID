@@ -3,9 +3,14 @@ public class Envenenado extends EstadoAlterado {
     private int danoPorTurno;
 
     public Envenenado(int duracion, int danoPorTurno) {
-        super(duracion);
-        this.danoPorTurno = danoPorTurno;
+    super(duracion);
+
+    if (danoPorTurno < 0) {
+        throw new IllegalArgumentException("El daño no puede ser negativo.");
     }
+
+    this.danoPorTurno = danoPorTurno;
+}
 
     @Override
     public void aplicarInicioTurno(Personajes p) {
@@ -24,4 +29,6 @@ public class Envenenado extends EstadoAlterado {
     public String getNombre() {
         return "Envenenado";
     }
+    
 }
+

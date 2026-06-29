@@ -26,8 +26,8 @@
 
     // Verifica si terminó
     public boolean expiro() {
-        return duracion <= 0;
-    }
+    return this.duracion <= 0;
+}
 
     public abstract String getNombre();
 }
