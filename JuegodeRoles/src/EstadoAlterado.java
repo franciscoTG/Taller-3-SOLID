@@ -1,36 +1,33 @@
+   public abstract class EstadoAlterado {
 
-public abstract class EstadoAlterado {
-
-    protected String nombre;
     protected int duracion;
 
-    public EstadoAlterado(String nombre, int duracion) {
-        this.nombre = nombre;
+    public EstadoAlterado(int duracion) {
         this.duracion = duracion;
     }
 
-    public void decrementarDuracion() {
-        if (duracion > 0) {
-            duracion--;
-        }
-    }
+    // Se ejecuta al inicio del turno
+    public abstract void aplicarInicioTurno(Personajes personaje);
 
-    public boolean estaActivo() {
-        return duracion > 0;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void aplicarInicioTurno(Personajes p) {
-    }
-
+    // Indica si el personaje puede atacar
     public boolean permiteAtacar() {
         return true;
     }
 
+    // Modifica el ataque si es necesario
     public int modificarAtaque(int ataqueBase) {
         return ataqueBase;
     }
+
+    // Reduce la duración
+    public void reducirDuracion() {
+        duracion--;
+    }
+
+    // Verifica si terminó
+    public boolean expiro() {
+        return duracion <= 0;
+    }
+
+    public abstract String getNombre();
 }

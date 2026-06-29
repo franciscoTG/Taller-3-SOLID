@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -173,19 +174,27 @@ public abstract class Personajes {
     protected abstract void habilidadEspecial(Personajes objetivo);
 
     public void procesarEstadosInicioTurno() {
+
         List<EstadoAlterado> copia = new ArrayList<>(estados);
+
         for (EstadoAlterado est : copia) {
+
             est.aplicarInicioTurno(this);
-            est.decrementarDuracion();
-            if (!est.estaActivo()) {
+
+            if (est.expiro()) {
                 estados.remove(est);
                 System.out.println(this.nombre + " deja de tener el estado: " + est.getNombre());
             }
+
         }
+
         int regen = Math.max(1, this.energiaMax / 10);
+
         this.energia = Math.min(this.energiaMax, this.energia + regen);
+
         if (this.cooldownActual > 0) {
             this.cooldownActual--;
         }
+
     }
 }
