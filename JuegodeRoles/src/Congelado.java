@@ -2,8 +2,12 @@
 public class Congelado extends EstadoAlterado {
 
     public Congelado(int duracion) {
-        super(duracion);
+    super(duracion);
+
+    if (duracion <= 0) {
+        throw new IllegalArgumentException("La duración debe ser mayor que cero.");
     }
+}
 
     @Override
     public void aplicarInicioTurno(Personajes p) {
@@ -24,3 +28,4 @@ public class Congelado extends EstadoAlterado {
         return "Congelado";
     }
 }
+
